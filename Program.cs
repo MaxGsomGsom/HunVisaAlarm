@@ -14,11 +14,11 @@ namespace VisaAlarm
             var intervalInSec = int.Parse(paramLines[0]);
             var login = paramLines[1];
             var pass = paramLines[2];
+            var driver = new ChromeDriver();
 
             while (true)
             {
                 Console.WriteLine("Last iteration time: " + DateTime.Now);
-                var driver = new ChromeDriver();
                 driver.Url = "https://visa.vfsglobal.com/rus/ru/hun/login";
                 Thread.Sleep(Sec(5));
                 driver.FindElement(By.XPath("//button[@id='onetrust-accept-btn-handler']")).Click();
