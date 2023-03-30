@@ -1,0 +1,8 @@
+60 #Таймаут между операциями
+test@test.com #Логин
+123456 #Пароль
+https://visa.vfsglobal.com/gbr/en/ita/login #Url для логина
+Italy Visa Application Centre, London #Визовый центр
+Italy UK VisaCategory #Категория визы
+Tourist/ Business/ EU Family #Подкатегория визы
+12-01-2020 #Дата, до которой искать слоты
