@@ -1,6 +1,6 @@
 60 #Таймаут между операциями
-test@test.com #Логин
-123456 #Пароль
+C:\Users\max_k\AppData\Local\Google\Chrome\User Data #Путь к папке с профилями хрома
+Default #Папка профиля хрома
 https://visa.vfsglobal.com/gbr/en/ita/login #Url для логина
 Italy Visa Application Centre, London #Визовый центр
 Italy UK VisaCategory #Категория визы
