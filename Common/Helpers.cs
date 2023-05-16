@@ -16,6 +16,7 @@ public static class Helpers
             options.AddArgument($@"user-data-dir={userDataDir}");
         if (profileDir != null)
             options.AddArgument($"--profile-directory={profileDir}");
+        options.AddArgument("--remote-debugging-port=9222");
         options.AddExcludedArgument("enable-automation");
         return new ChromeDriver(options);
     }

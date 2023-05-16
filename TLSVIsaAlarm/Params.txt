@@ -1,5 +1,4 @@
-60 #Таймаут между операциями
+600 #Таймаут между операциями
 C:\Users\max_k\AppData\Local\Google\Chrome\User Data #Путь к папке с профилями хрома
 Default #Папка профиля хрома
 https://visa-fr.tlscontact.com/formGroup/gb/gbLON2fr #Url
-12-01-2020 #Дата, до которой искать слоты

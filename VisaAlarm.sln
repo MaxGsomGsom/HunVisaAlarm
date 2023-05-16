@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TLSVIsaAlarm", "TLSVIsaAlar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{06D4CAE9-B132-4728-BE82-1AB3DBAB0AA8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpainVisa", "SpainVisa\SpainVisa.csproj", "{D1BABA95-6EB3-46BF-B3C4-66ADB658D519}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{06D4CAE9-B132-4728-BE82-1AB3DBAB0AA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06D4CAE9-B132-4728-BE82-1AB3DBAB0AA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06D4CAE9-B132-4728-BE82-1AB3DBAB0AA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1BABA95-6EB3-46BF-B3C4-66ADB658D519}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1BABA95-6EB3-46BF-B3C4-66ADB658D519}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1BABA95-6EB3-46BF-B3C4-66ADB658D519}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1BABA95-6EB3-46BF-B3C4-66ADB658D519}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

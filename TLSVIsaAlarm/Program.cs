@@ -15,11 +15,21 @@ class Program
         var userDataDir = paramLines.GetLine(1);
         var profileDir = paramLines.GetLine(2);
         var url = paramLines.GetLine(3);
-        //DateTime.TryParse(paramLines.GetLine(7), out var latestDate);
         var driver = Helpers.CreateDriver(userDataDir, profileDir);
 
         while (true)
         {
+            try
+            {
+                await Iterate();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+        }
+
+        async Task Iterate() {
             Console.WriteLine("Last iteration time: " + DateTime.Now);
             
             driver.Url = url;
