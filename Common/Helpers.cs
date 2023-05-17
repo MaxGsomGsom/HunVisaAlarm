@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -18,6 +19,7 @@ public static class Helpers
             options.AddArgument($"--profile-directory={profileDir}");
         options.AddArgument("--remote-debugging-port=9222");
         options.AddExcludedArgument("enable-automation");
+        options.SetLoggingPreference(LogType.Browser, LogLevel.Warning);
         return new ChromeDriver(options);
     }
         
@@ -50,11 +52,23 @@ public static class Helpers
         return driver.FindElements(By.XPath(xpath));
     }
 
-    public static void Beep(int sec, int times)
+    public static async Task Beep(double sec, int times)
     {
         for (int i = 0; i < times; i++)
         {
-            Console.Beep(1000, Ms(sec));
+            try
+            {
+                Console.Beep(1000, (int)(sec * 1000));
+            }
+            catch
+            {
+                for (int j = 0; j < sec / 1000; j++)
+                {
+                    Console.Write('\a');
+                }
+            }
+
+            await Wait(5);
         }
     }
 }
