@@ -62,13 +62,23 @@ public static class Helpers
             }
             catch
             {
-                for (int j = 0; j < sec / 1000; j++)
+                for (int j = 0; j < sec * 4; j++)
                 {
                     Console.Write('\a');
+                    await Task.Delay(250);
                 }
             }
 
-            await Wait(5);
+            await Task.Delay(5000);
         }
+    }
+
+    public static void WriteLine(string text, bool pause = false)
+    {
+        Console.WriteLine("==================================================");
+        Console.WriteLine(text);
+        Console.WriteLine("==================================================");
+        if (pause)
+            Console.ReadLine();
     }
 }

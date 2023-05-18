@@ -15,32 +15,37 @@ var visaCenter = paramLines.GetLine(4);
 var visaType = paramLines.GetLine(5);
 var visaSubType = paramLines.GetLine(6);
 DateTime.TryParse(paramLines.GetLine(7), out var latestDate);
-int errorsCount = 0;
 
-Console.WriteLine("=== Initialization completed");
-await Helpers.Beep(0.5, 1);
+Helpers.WriteLine("Initialization completed");
+Helpers.Beep(0.5, 1);
+int successful = 0;
+int failed = 0;
 
 while (true)
 {
     ChromeDriver? driver = null;
     try
     {
-        Console.WriteLine("=== Last try: " + DateTime.Now);
+        
+        Helpers.WriteLine("Iteration started: " + DateTime.Now);
         driver = Helpers.CreateDriver(userDataDir, profileDir);
         if (!await Iterate(driver))
             return;
+        
+        Helpers.WriteLine("Iteration finished: " + DateTime.Now);
+        Helpers.WriteLine($"Successful: {++successful}\nFailed: {failed}");
+        
+        driver.Close();
+        driver.Dispose();
+        await Helpers.Wait(interval);
     }
     catch (Exception e)
     {
-        await Helpers.Beep(0.5, 1);
-        Console.WriteLine("=== Exception: " + e);
-        if (errorsCount++ >= 5)
-            return;
-    }
-    finally
-    {
+        //Helpers.Beep(10, 1);
+        Helpers.WriteLine("Iteration failed: " + e);
+        Helpers.WriteLine($"Successful: {successful}\nFailed: {++failed}");
         driver?.Close();
-        await Helpers.Wait(interval);
+        driver?.Dispose();
     }
 }
 
@@ -51,8 +56,8 @@ async Task<bool> Iterate(ChromeDriver driver)
 
     // cookies
     await Helpers.Wait(5);
-    if (driver.FindByXPath("//button[@id='onetrust-accept-btn-handler']").Any())
-        driver.ClickByXPath("//button[@id='onetrust-accept-btn-handler']");
+    if (driver.FindByXPath("//button[@id='onetrust-reject-all-handler']").Any())
+        driver.ClickByXPath("//button[@id='onetrust-reject-all-handler']");
 
     // recaptcha
     await Helpers.Wait(5);
@@ -106,13 +111,12 @@ async Task<bool> Iterate(ChromeDriver driver)
         var dateString = Regex.Matches(dateElement.Text, "\\d{2}-\\d{2}-\\d{4}").FirstOrDefault()?.Value;
 
         if (dateString != null)
-            Console.WriteLine("=== Found date: " + dateString);
+            Helpers.WriteLine("Found date: " + dateString);
 
         if (dateString != null && DateTime.Parse(dateString) < latestDate)
         {
-            Console.WriteLine("=== Found correct date!");
-            await Helpers.Beep(10, 6);
-            Console.ReadLine();
+            Helpers.Beep(10, 6);
+            Helpers.WriteLine("Found correct date!", true);
             return false;
         }
     }
