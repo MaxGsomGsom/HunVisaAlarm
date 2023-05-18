@@ -1,6 +1,6 @@
 600 #Таймаут между операциями
-C:\Users\max_k\AppData\Local\Google\Chrome\User Data #Путь к папке с профилями хрома
-Profile 1 #Папка профиля хрома
+.\ #Путь к папке с профилями хрома
+#Папка профиля хрома
 https://visa.vfsglobal.com/gbr/en/hun/login #Url для логина
 Hungary Visa Application Center - London #Визовый центр
 Other #Категория визы
