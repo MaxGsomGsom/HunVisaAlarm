@@ -1,8 +1,8 @@
 600 #Таймаут между операциями
-.\ #Путь к папке с профилями хрома
+C:\Users\max_k\Sources\HunVisaAlarm\VFSVisaAlarm\bin\Debug\net6.0\UserProfile #Путь к папке с профилями хрома
 #Папка профиля хрома
 https://visa.vfsglobal.com/gbr/en/hun/login #Url для логина
 Hungary Visa Application Center - London #Визовый центр
 Other #Категория визы
 Tourism #Подкатегория визы
-30-06-2023 #Дата, до которой искать слоты
+30-11-2024 #Дата, до которой искать слоты
